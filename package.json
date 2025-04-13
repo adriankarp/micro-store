@@ -1,5 +1,6 @@
 {
   "name": "micro-store",
+  "license": "MIT",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -19,5 +20,11 @@
   "packageManager": "pnpm@10.4.1",
   "engines": {
     "node": ">=20"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "core-js-pure",
+      "sharp"
+    ]
   }
 }
