@@ -6,15 +6,11 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/storefront",
+        source: "/",
         destination: `${STOREFRONT_URL}/`,
       },
       {
-        source: "/storefront/:path*",
-        destination: `${STOREFRONT_URL}/:path*`,
-      },
-      {
-        source: "/storefront-static/:path*",
+        source: "/:path*",
         destination: `${STOREFRONT_URL}/:path*`,
       },
     ];
