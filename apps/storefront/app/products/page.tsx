@@ -4,9 +4,9 @@ export default function Page() {
   return (
     <div className="flex items-center justify-center min-h-svh">
       <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Shell</h1>
-        <a href="/storefront">
-          <Button size="sm">Go to storefront</Button>
+        <h1 className="text-2xl font-bold">Storefront</h1>
+        <a href="/">
+          <Button size="sm">Go to home</Button>
         </a>
       </div>
     </div>
