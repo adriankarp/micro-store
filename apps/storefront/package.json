@@ -21,7 +21,6 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@micro-store/eslint-config": "workspace:^",
     "@micro-store/typescript-config": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
