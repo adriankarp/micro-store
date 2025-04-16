@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "clean": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' + && find . -name \"pnpm-lock.yaml\" -type f -delete && find . -name \".turbo\" -type d -prune -exec rm -rf '{}' + && find . -name \"dist\" -type d -prune -exec rm -rf '{}' + && find . -name \".next\" -type d -prune -exec rm -rf '{}' + && find . -name \"coverage\" -type d -prune -exec rm -rf '{}' + ",
+    "clean": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' + && find . -name \"pnpm-lock.yaml\" -type f -delete && find . -name \".turbo\" -type d -prune -exec rm -rf '{}' + && find . -name \"dist\" -type d -prune -exec rm -rf '{}' + && find . -name \".next\" -type d -prune -exec rm -rf '{}' + && find . -name \"coverageg\" -type d -prune -exec rm -rf '{}' + ",
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
