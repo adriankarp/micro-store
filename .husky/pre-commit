@@ -1,0 +1,8 @@
+echo "Running formatter..."
+pnpm run format
+
+echo "Running linter..."
+pnpm run lint
+
+echo "Running tests..."
+pnpm run test
