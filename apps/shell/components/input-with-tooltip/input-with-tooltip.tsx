@@ -60,11 +60,13 @@ export function InputWithTooltip<T extends FieldValues>({
             {props.type === "password" &&
               (isView ? (
                 <Eye
+                  data-testid="eye-icon"
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-gray-500"
                   onClick={() => setIsView(false)}
                 />
               ) : (
                 <EyeOff
+                  data-testid="eye-off-icon"
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-gray-500"
                   onClick={() => setIsView(true)}
                 />
