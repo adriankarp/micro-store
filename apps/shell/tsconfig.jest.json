@@ -1,0 +1,6 @@
+{
+  "extends": "@micro-store/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  }
+}
