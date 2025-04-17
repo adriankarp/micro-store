@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@micro-store/typescript-config": "workspace:*",
+    "@types/node": "^20",
     "husky": "^9.1.7",
     "prettier": "^3.5.1",
     "turbo": "^2.4.2",
@@ -28,6 +29,9 @@
     "onlyBuiltDependencies": [
       "core-js-pure",
       "sharp"
+    ],
+    "ignoredBuiltDependencies": [
+      "esbuild"
     ]
   }
 }

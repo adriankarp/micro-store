@@ -9,5 +9,6 @@
     "allowJs": true,
     "jsx": "preserve",
     "noEmit": true
-  }
+  },
+  "types": ["vitest/globals", "@testing-library/jest-dom"]
 }

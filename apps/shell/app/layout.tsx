@@ -20,6 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <title>micro-store</title>
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >

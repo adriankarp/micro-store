@@ -8,9 +8,7 @@
     "start": "next start -p 3001",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "typecheck": "tsc --noEmit",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@micro-store/ui": "workspace:*",
@@ -22,16 +20,10 @@
   },
   "devDependencies": {
     "@micro-store/typescript-config": "workspace:*",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint-config-prettier": "^10.1.2",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }
