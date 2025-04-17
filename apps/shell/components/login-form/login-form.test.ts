@@ -1,4 +1,4 @@
-describe("Home", () => {
+describe("LoginForm", () => {
   it("renders a heading", () => {
     const one = 1;
 
