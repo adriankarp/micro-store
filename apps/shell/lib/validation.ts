@@ -20,7 +20,7 @@ export const loginFormSchema = yup
       .matches(/\d/, "Must contain at least one number")
       .matches(
         /[!@#$%^&*(),.?":{}|<>]/,
-        "Must contain at least one special character"
+        "Must contain at least one special character",
       )
       .matches(/^\S*$/, "Password cannot contain spaces"),
   })
@@ -49,7 +49,7 @@ export const registerFormSchema = yup
       .matches(/\d/, "Must contain at least one number")
       .matches(
         /[!@#$%^&*(),.?":{}|<>]/,
-        "Must contain at least one special character"
+        "Must contain at least one special character",
       )
       .matches(/^\S*$/, "Password cannot contain spaces"),
 
