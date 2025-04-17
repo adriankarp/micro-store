@@ -20,7 +20,7 @@ export const loginFormSchema = yup
       .matches(/\d/, "Must contain at least one number")
       .matches(
         /[!@#$%^&*(),.?":{}|<>]/,
-        "Must contain at least one special character",
+        "Must contain at least one special character"
       )
       .matches(/^\S*$/, "Password cannot contain spaces"),
   })
@@ -28,7 +28,7 @@ export const loginFormSchema = yup
 export type LoginFormValues = yup.InferType<typeof loginFormSchema>;
 
 // TODO: Probably a setup account page with:
-// First Name & Last Name, Phone Number, Date of Birth3 Subscribe to Newsletter, Terms & Conditions / Privacy Policy Acceptance
+// First Name & Last Name, Phone Number, Date of Birth Subscribe to Newsletter, Terms & Conditions / Privacy Policy Acceptance
 export const registerFormSchema = yup
   .object({
     email: yup
@@ -49,7 +49,7 @@ export const registerFormSchema = yup
       .matches(/\d/, "Must contain at least one number")
       .matches(
         /[!@#$%^&*(),.?":{}|<>]/,
-        "Must contain at least one special character",
+        "Must contain at least one special character"
       )
       .matches(/^\S*$/, "Password cannot contain spaces"),
 
