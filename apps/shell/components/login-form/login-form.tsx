@@ -10,7 +10,6 @@ import { LoginFormValues, formSchema } from "../../lib/validation";
 import { cn } from "@micro-store/ui/lib/utils";
 import { Button } from "@micro-store/ui/components/button";
 import { Card, CardContent } from "@micro-store/ui/components/card";
-import { Eye, EyeOff } from "lucide-react";
 
 import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
 import { Footer } from "../footer";
@@ -20,7 +19,6 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const [showPassword, setShowPassword] = React.useState(false);
   const {
     register,
     handleSubmit,
@@ -67,29 +65,13 @@ export function LoginForm({
                     Forgot your password?
                   </Link>
                 </div>
-                <div className="relative">
-                  <InputWithTooltip<LoginFormValues>
-                    name="password"
-                    label="Password"
-                    type={showPassword ? "text" : "password"}
-                    register={register}
-                    error={errors.password}
-                  />
-                  <button
-                    type="button"
-                    className="absolute inset-y-0 right-2 flex items-center"
-                    onClick={() => setShowPassword((v) => !v)}
-                    aria-label={
-                      showPassword ? "Hide password" : "Show password"
-                    }
-                  >
-                    {showPassword ? (
-                      <EyeOff className="h-4 w-4 text-muted-foreground" />
-                    ) : (
-                      <Eye className="h-4 w-4 text-muted-foreground" />
-                    )}
-                  </button>
-                </div>
+                <InputWithTooltip<LoginFormValues>
+                  name="password"
+                  label="Password"
+                  type={"password"}
+                  register={register}
+                  error={errors.password}
+                />
               </div>
               <Button type="submit" className="w-full" disabled={isSubmitting}>
                 {isSubmitting ? "Logging in..." : "Login"}

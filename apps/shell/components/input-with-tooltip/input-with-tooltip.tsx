@@ -8,6 +8,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@micro-store/ui/components/tooltip";
+import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@micro-store/ui/lib/utils";
 import type {
   UseFormRegister,
@@ -33,20 +34,44 @@ export function InputWithTooltip<T extends FieldValues>({
   ...props
 }: InputWithTooltipProps<T>) {
   const id = String(name);
+  const [isView, setIsView] = React.useState(false);
+
   return (
     <div className="grid gap-1">
       <Label htmlFor={id}>{label}</Label>
       <Tooltip open={!!error}>
         <TooltipTrigger asChild>
-          <Input
-            id={id}
-            {...register(name)}
-            aria-invalid={!!error}
-            aria-describedby={error ? `${id}-error` : undefined}
-            className={cn(className)}
-            {...props}
-          />
+          <div className="relative">
+            <Input
+              id={id}
+              {...register(name)}
+              aria-invalid={!!error}
+              aria-describedby={error ? `${id}-error` : undefined}
+              className={cn(className)}
+              {...props}
+              type={
+                props.type === "password"
+                  ? isView
+                    ? "text"
+                    : "password"
+                  : props.type
+              }
+            />
+            {props.type === "password" &&
+              (isView ? (
+                <Eye
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-gray-500"
+                  onClick={() => setIsView(false)}
+                />
+              ) : (
+                <EyeOff
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-gray-500"
+                  onClick={() => setIsView(true)}
+                />
+              ))}
+          </div>
         </TooltipTrigger>
+
         {error && (
           <TooltipContent side="right" align="start" id={`${id}-error`}>
             <p className="text-sm text-destructive">{error.message}</p>
