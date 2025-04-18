@@ -33,7 +33,7 @@ describe("RegisterForm", () => {
     vi.clearAllMocks();
   });
 
-  it("renders email & password inputs and two buttons", () => {
+  it("renders email & password inputs and one button", () => {
     render(<RegisterForm />);
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
     expect(screen.getByLabelText("Password")).toBeInTheDocument();

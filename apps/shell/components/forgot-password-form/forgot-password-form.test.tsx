@@ -33,7 +33,7 @@ describe("ForgotPasswordForm", () => {
     vi.clearAllMocks();
   });
 
-  it("renders email & password inputs and two buttons", () => {
+  it("renders email one button", () => {
     render(<ForgotPasswordForm />);
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
 
