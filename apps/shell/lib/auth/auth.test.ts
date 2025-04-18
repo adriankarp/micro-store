@@ -34,7 +34,7 @@ describe("lib/api/auth", () => {
       });
 
       await expect(
-        login({ email: "a@b.com", password: "pw" } as LoginFormValues)
+        login({ email: "a@b.com", password: "pw" } as LoginFormValues),
       ).resolves.toEqual({
         access_token: "foo-token",
         refresh_token: "bar-token",
@@ -46,7 +46,7 @@ describe("lib/api/auth", () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: "a@b.com", password: "pw" }),
-        })
+        }),
       );
     });
 
@@ -61,7 +61,7 @@ describe("lib/api/auth", () => {
       });
 
       await expect(
-        login({ email: "a@b.com", password: "wrong" } as LoginFormValues)
+        login({ email: "a@b.com", password: "wrong" } as LoginFormValues),
       ).rejects.toEqual(new APIError("Invalid credentials", 401));
     });
   });
