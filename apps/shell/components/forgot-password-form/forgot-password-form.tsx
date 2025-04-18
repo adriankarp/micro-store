@@ -6,18 +6,19 @@ import Link from "next/link";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { LoginFormValues, loginFormSchema } from "../../lib/validation";
+import {
+  ForgotPasswordFormValues,
+  forgotPasswordFormSchema,
+} from "../../lib/validation";
 
+import { ClipLoader } from "react-spinners";
 import { cn } from "@micro-store/ui/lib/utils";
 import { Button } from "@micro-store/ui/components/button";
 import { Card, CardContent } from "@micro-store/ui/components/card";
-
-import { ClipLoader } from "react-spinners";
 import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
-import { SocialButtons } from "../social-buttons/social-buttons";
 import { Footer } from "../footer";
 
-export function LoginForm({
+export function ForgotPasswordForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
@@ -25,12 +26,12 @@ export function LoginForm({
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<LoginFormValues>({
-    resolver: yupResolver(loginFormSchema),
-    defaultValues: { email: "", password: "" },
+  } = useForm<ForgotPasswordFormValues>({
+    resolver: yupResolver(forgotPasswordFormSchema),
+    defaultValues: { email: "" },
   });
 
-  const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
+  const onSubmit: SubmitHandler<ForgotPasswordFormValues> = async (data) => {
     console.log(data);
     return new Promise<void>((resolve) => setTimeout(resolve, 1000));
   };
@@ -46,13 +47,13 @@ export function LoginForm({
           >
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Welcome back!</h1>
+                <h1 className="text-2xl font-bold">Forgot your password?</h1>
                 <p className="text-muted-foreground text-balance">
-                  Login to your micro-store account
+                  Enter your email to reset your password.
                 </p>
               </div>
               <div className="grid gap-3">
-                <InputWithTooltip<LoginFormValues>
+                <InputWithTooltip<ForgotPasswordFormValues>
                   name="email"
                   label="Email"
                   type="email"
@@ -62,37 +63,19 @@ export function LoginForm({
                   error={errors.email}
                 />
               </div>
-              <div className="grid gap-3">
-                <div className="flex items-center">
-                  <Link
-                    href="/forgot-password"
-                    className="mt-[-1rem] ml-auto text-sm underline-offset-2 hover:underline"
-                  >
-                    Forgot your password?
-                  </Link>
-                </div>
-                <InputWithTooltip<LoginFormValues>
-                  name="password"
-                  label="Password"
-                  type={"password"}
-                  register={register}
-                  error={errors.password}
-                />
-              </div>
               <Button type="submit" className="w-full" disabled={isSubmitting}>
                 {isSubmitting && <ClipLoader size={16} />}
-                {isSubmitting ? "Logging in…" : "Log in"}
+                {isSubmitting
+                  ? "Sending password reset link…"
+                  : "Send password reset link"}
               </Button>
-              <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-                <span className="bg-card text-muted-foreground relative z-10 px-2">
-                  Or continue with
-                </span>
-              </div>
-              <SocialButtons isDisabled={isSubmitting} />
+              <p className="text-xs text-muted-foreground text-center">
+                We’ll never share your email with anyone.
+              </p>
               <div className="text-center text-sm">
-                Don&apos;t have an account?{" "}
-                <Link href="/register" className="underline underline-offset-4">
-                  Sign up
+                Remembered your password?{" "}
+                <Link href="/login" className="underline underline-offset-4">
+                  Log in
                 </Link>
               </div>
             </div>
