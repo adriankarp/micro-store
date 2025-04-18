@@ -15,12 +15,16 @@ import { SocialButtons } from "../social-buttons/social-buttons";
 import { Footer } from "../footer";
 import { useLogin } from "../../hooks/useAuth";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { setTokens } from "@/lib/cookies";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
   const { loginUser, loading: loginLoading } = useLogin();
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -35,7 +39,9 @@ export function LoginForm({
     try {
       const tokens = await loginUser(data);
       console.log("Received tokens:", tokens);
+      setTokens(tokens);
       toast.success("Logged in successfully");
+      router.push("/");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Login failed");
     }
