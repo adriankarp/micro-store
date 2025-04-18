@@ -1,4 +1,3 @@
-// TODO: Extract cookie utils in a shareable package (like the ui components)
 import Cookies from "js-cookie";
 
 const ACCESS_TOKEN_KEY = "access_token";

@@ -35,9 +35,9 @@ importers:
       '@micro-store/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      js-cookie:
-        specifier: ^3.0.5
-        version: 3.0.5
+      '@micro-store/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.1.0)
@@ -81,9 +81,6 @@ importers:
       '@testing-library/react-hooks':
         specifier: ^8.0.1
         version: 8.0.1(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@types/js-cookie':
-        specifier: ^3.0.6
-        version: 3.0.6
       '@types/node':
         specifier: ^20
         version: 20.17.30
@@ -129,6 +126,9 @@ importers:
       '@micro-store/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@micro-store/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@19.1.0)
@@ -229,6 +229,25 @@ importers:
       '@types/react-dom':
         specifier: ^19.1.2
         version: 19.1.2(@types/react@19.1.2)
+      tailwindcss:
+        specifier: ^4.0.8
+        version: 4.1.4
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+
+  packages/utils:
+    dependencies:
+      js-cookie:
+        specifier: ^3.0.5
+        version: 3.0.5
+    devDependencies:
+      '@micro-store/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/js-cookie':
+        specifier: ^3.0.6
+        version: 3.0.6
       tailwindcss:
         specifier: ^4.0.8
         version: 4.1.4

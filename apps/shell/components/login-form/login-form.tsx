@@ -16,7 +16,7 @@ import { Footer } from "../footer";
 import { useLogin } from "../../hooks/useAuth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { setTokens } from "@/lib/cookies";
+import { setTokens } from "@micro-store/utils/cookies";
 
 export function LoginForm({
   className,
