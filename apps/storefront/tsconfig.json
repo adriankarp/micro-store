@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@micro-store/ui/*": ["../../packages/ui/src/*"]
+      "@micro-store/ui/*": ["../../packages/ui/src/*"],
+      "@micro-store/utils/*": ["../../packages/utils/src/*"]
     },
     "plugins": [
       {

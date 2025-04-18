@@ -1,23 +1,22 @@
 "use client";
 
-import React from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
+import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { RegisterFormValues, registerFormSchema } from "../../lib/validation";
-
 import { ClipLoader } from "react-spinners";
-import { cn } from "@micro-store/ui/lib/utils";
+import { toast } from "sonner";
+
 import { Button } from "@micro-store/ui/components/button";
 import { Card, CardContent } from "@micro-store/ui/components/card";
-import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
-import { Footer } from "../footer";
+import { cn } from "@micro-store/ui/lib/utils";
 
 import { useRegister } from "../../hooks/useAuth";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
+import { RegisterFormValues, registerFormSchema } from "../../lib/validation";
+import { Footer } from "../footer";
+import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
 
 export function RegisterForm({
   className,

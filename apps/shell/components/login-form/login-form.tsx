@@ -1,22 +1,24 @@
 "use client";
 
-import React from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { LoginFormValues, loginFormSchema } from "../../lib/validation";
-import { cn } from "@micro-store/ui/lib/utils";
+import { ClipLoader } from "react-spinners";
+import { toast } from "sonner";
+
 import { Button } from "@micro-store/ui/components/button";
 import { Card, CardContent } from "@micro-store/ui/components/card";
-import { ClipLoader } from "react-spinners";
+import { cn } from "@micro-store/ui/lib/utils";
+import { setTokens } from "@micro-store/utils/cookies";
+
+import { useLogin } from "../../hooks/useAuth";
+import { LoginFormValues, loginFormSchema } from "../../lib/validation";
+import { Footer } from "../footer";
 import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
 import { SocialButtons } from "../social-buttons/social-buttons";
-import { Footer } from "../footer";
-import { useLogin } from "../../hooks/useAuth";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import { setTokens } from "@/lib/cookies";
 
 export function LoginForm({
   className,
