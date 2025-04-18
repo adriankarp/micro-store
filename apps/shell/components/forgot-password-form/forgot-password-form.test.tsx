@@ -1,6 +1,4 @@
-/* @next/next/no-img-element: 0 */
-/* jsx-a11y/alt-text: 0 */
-/* @typescript-eslint/no-explicit-any: 0 */
+/* eslint-disable */
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
