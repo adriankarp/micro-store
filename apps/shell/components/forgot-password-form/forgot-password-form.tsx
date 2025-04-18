@@ -18,10 +18,17 @@ import { Card, CardContent } from "@micro-store/ui/components/card";
 import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
 import { Footer } from "../footer";
 
+import { useForgotPassword } from "../../hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
 export function ForgotPasswordForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const { sendForgotPassword, loading: forgotLoading } = useForgotPassword();
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -32,9 +39,20 @@ export function ForgotPasswordForm({
   });
 
   const onSubmit: SubmitHandler<ForgotPasswordFormValues> = async (data) => {
-    console.log(data);
-    return new Promise<void>((resolve) => setTimeout(resolve, 1000));
+    console.log("Form data:", data);
+    try {
+      const result = await sendForgotPassword(data);
+      console.log("Forgot password result:", result);
+      toast.success(result.message);
+      router.push("/login");
+    } catch (err) {
+      toast.error(
+        err instanceof Error ? err.message : "Failed to send reset link",
+      );
+    }
   };
+
+  const submitting = isSubmitting || forgotLoading;
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -63,10 +81,10 @@ export function ForgotPasswordForm({
                   error={errors.email}
                 />
               </div>
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting && <ClipLoader size={16} />}
-                {isSubmitting
-                  ? "Sending password reset link…"
+              <Button type="submit" className="w-full" disabled={submitting}>
+                {submitting && <ClipLoader size={16} />}
+                {submitting
+                  ? "Sending reset link…"
                   : "Send password reset link"}
               </Button>
               <p className="text-xs text-muted-foreground text-center">
@@ -82,6 +100,7 @@ export function ForgotPasswordForm({
           </form>
           <div className="bg-muted hidden md:block">
             <Image
+              priority
               src="/side-image.png"
               alt="Decorative side graphic"
               width={768}

@@ -15,10 +15,17 @@ import { Card, CardContent } from "@micro-store/ui/components/card";
 import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
 import { Footer } from "../footer";
 
+import { useRegister } from "../../hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
 export function RegisterForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const { registerUser, loading: registerLoading } = useRegister();
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -29,9 +36,18 @@ export function RegisterForm({
   });
 
   const onSubmit: SubmitHandler<RegisterFormValues> = async (data) => {
-    console.log(data);
-    return new Promise<void>((resolve) => setTimeout(resolve, 1000));
+    console.log("Form data:", data);
+    try {
+      const result = await registerUser(data);
+      console.log("Register result:", result);
+      toast.success(result.message || "Registered successfully");
+      router.push("/login");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Registration failed");
+    }
   };
+
+  const submitting = isSubmitting || registerLoading;
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -64,7 +80,7 @@ export function RegisterForm({
                 <InputWithTooltip<RegisterFormValues>
                   name="password"
                   label="Password"
-                  type={"password"}
+                  type="password"
                   register={register}
                   error={errors.password}
                 />
@@ -73,22 +89,26 @@ export function RegisterForm({
                 <InputWithTooltip<RegisterFormValues>
                   name="confirmPassword"
                   label="Confirm Password"
-                  type={"password"}
+                  type="password"
                   register={register}
                   error={errors.confirmPassword}
                 />
               </div>
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting && <ClipLoader size={16} />}
-                {isSubmitting ? "Signing up…" : "Sign up"}
+              <Button type="submit" className="w-full" disabled={submitting}>
+                {submitting && <ClipLoader size={16} />}
+                {submitting ? "Signing up…" : "Sign up"}
               </Button>
               <div className="text-center text-sm">
-                Already have an account? <Link href="/login">Log in</Link>
+                Already have an account?{" "}
+                <Link href="/login" className="underline underline-offset-4">
+                  Log in
+                </Link>
               </div>
             </div>
           </form>
           <div className="bg-muted hidden md:block">
             <Image
+              priority
               src="/side-image.png"
               alt="Decorative side graphic"
               width={768}
