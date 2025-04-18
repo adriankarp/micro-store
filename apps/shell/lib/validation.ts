@@ -1,5 +1,6 @@
 import * as yup from "yup";
 
+// Login
 export const loginFormSchema = yup
   .object({
     email: yup
@@ -27,6 +28,7 @@ export const loginFormSchema = yup
   .required();
 export type LoginFormValues = yup.InferType<typeof loginFormSchema>;
 
+// Register
 // TODO: Probably a setup account page with:
 // First Name & Last Name, Phone Number, Date of Birth Subscribe to Newsletter, Terms & Conditions / Privacy Policy Acceptance
 export const registerFormSchema = yup
@@ -60,3 +62,19 @@ export const registerFormSchema = yup
   })
   .required();
 export type RegisterFormValues = yup.InferType<typeof registerFormSchema>;
+
+// Forgot password
+export const forgotPasswordFormSchema = yup
+  .object({
+    email: yup
+      .string()
+      .trim()
+      .lowercase()
+      .max(254, "Email must be at most 254 characters")
+      .email("Please enter a valid email address")
+      .required("Email is required"),
+  })
+  .required();
+export type ForgotPasswordFormValues = yup.InferType<
+  typeof forgotPasswordFormSchema
+>;

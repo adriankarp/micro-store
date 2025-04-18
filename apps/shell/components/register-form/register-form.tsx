@@ -36,7 +36,7 @@ export function RegisterForm({
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
-        <CardContent className="grid p-0 md:grid-cols-2">
+        <CardContent className="grid p-0 md:grid-cols-2 md:items-center">
           <form
             noValidate
             className="p-6 md:p-8"
@@ -80,13 +80,10 @@ export function RegisterForm({
               </div>
               <Button type="submit" className="w-full" disabled={isSubmitting}>
                 {isSubmitting && <ClipLoader size={16} />}
-                {isSubmitting ? "Creating your account..." : "Sign up"}
+                {isSubmitting ? "Signing up…" : "Sign up"}
               </Button>
               <div className="text-center text-sm">
-                Already have an account?{" "}
-                <Link href="/login" className="underline underline-offset-4">
-                  Sign in
-                </Link>
+                Already have an account? <Link href="/login">Log in</Link>
               </div>
             </div>
           </form>

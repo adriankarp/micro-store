@@ -22,9 +22,9 @@ vi.mock("next/link", () => ({
   }) => <a href={href}>{children}</a>,
 }));
 
-import { RegisterForm } from "./register-form";
+import { ForgotPasswordForm } from "./forgot-password-form";
 
-describe("RegisterForm", () => {
+describe("ForgotPasswordForm", () => {
   beforeEach(() => {
     vi.spyOn(console, "log").mockImplementation(() => {});
   });
@@ -33,10 +33,9 @@ describe("RegisterForm", () => {
     vi.clearAllMocks();
   });
 
-  it("renders email & password inputs and one button", () => {
-    render(<RegisterForm />);
+  it("renders email one button", () => {
+    render(<ForgotPasswordForm />);
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
-    expect(screen.getByLabelText("Password")).toBeInTheDocument();
 
     const buttons = screen.getAllByRole("button");
     expect(buttons).toHaveLength(1);
