@@ -7,7 +7,7 @@
     "clean": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' + && find . -name \"pnpm-lock.yaml\" -type f -delete && find . -name \".turbo\" -type d -prune -exec rm -rf '{}' + && find . -name \"dist\" -type d -prune -exec rm -rf '{}' + && find . -name \".next\" -type d -prune -exec rm -rf '{}' + && find . -name \"coverageg\" -type d -prune -exec rm -rf '{}' + ",
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
+    "lint": "turbo lint -- --fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky",
     "test": "turbo run test",

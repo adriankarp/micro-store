@@ -1,8 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { Button } from "@micro-store/ui/components/button";
 import { clearTokens } from "@micro-store/utils/cookies";
-import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter();

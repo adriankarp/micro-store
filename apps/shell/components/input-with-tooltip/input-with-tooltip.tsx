@@ -1,6 +1,14 @@
 "use client";
 
+import { Eye, EyeOff } from "lucide-react";
 import * as React from "react";
+import type {
+  UseFormRegister,
+  FieldError,
+  FieldValues,
+  Path,
+} from "react-hook-form";
+
 import { Input } from "@micro-store/ui/components/input";
 import { Label } from "@micro-store/ui/components/label";
 import {
@@ -8,14 +16,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@micro-store/ui/components/tooltip";
-import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@micro-store/ui/lib/utils";
-import type {
-  UseFormRegister,
-  FieldError,
-  FieldValues,
-  Path,
-} from "react-hook-form";
 
 export interface InputWithTooltipProps<T extends FieldValues>
   extends React.ComponentProps<typeof Input> {

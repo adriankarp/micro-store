@@ -1,8 +1,9 @@
-import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
+import React from "react";
 import "@testing-library/jest-dom";
-import { describe, it, expect, vi } from "vitest";
 import type { UseFormRegister } from "react-hook-form";
+import { describe, it, expect, vi } from "vitest";
+
 import { InputWithTooltip } from "./input-with-tooltip";
 
 type FormValues = { password?: string; email?: string };
