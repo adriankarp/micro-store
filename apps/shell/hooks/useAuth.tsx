@@ -1,4 +1,3 @@
-// hooks/useAuth.ts
 import { useState, useCallback } from "react";
 import {
   login as apiLogin,
