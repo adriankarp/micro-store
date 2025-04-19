@@ -11,8 +11,8 @@ export default function Loading() {
       <div className="w-full max-w-sm md:max-w-3xl">
         <Header />
         <Card className="overflow-hidden">
-          <CardContent className="p-0 md:grid md:grid-cols-2 md:items-center">
-            <div className="p-6 md:p-8 space-y-6 animate-pulse">
+          <CardContent className="p-0 md:grid md:grid-cols-2 md:items-center h-full min-h-[600px]">
+            <div className="p-6 md:p-8 h-full flex flex-col justify-center space-y-6 animate-pulse">
               <div className="h-8 bg-slate-200 rounded w-3/4 mx-auto" />
 
               <div className="space-y-4">
