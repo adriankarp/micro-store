@@ -1,10 +1,11 @@
+import { useEffect, useRef } from "react";
+
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@micro-store/ui/components/dialog";
-import { useEffect, useRef } from "react";
 
 export function TermsModal({
   open,

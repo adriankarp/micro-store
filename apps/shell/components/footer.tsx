@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { TermsModal } from "./modals/terms-modal";
+
 import { PrivacyModal } from "./modals/privacy-modal";
+import { TermsModal } from "./modals/terms-modal";
 
 export function Footer() {
   const [termsOpen, setTermsOpen] = useState(false);
