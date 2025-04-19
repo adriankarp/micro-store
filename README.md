@@ -1,63 +1,47 @@
-# 🛍️ E-Commerce Micro-Frontend Platform
+# 🛍️ Micro‑Store Monorepo
 
-A modular and scalable e-commerce platform built with Turborepo, Next.js, and Micro-Frontends. Ideal for learning micro-frontend architecture.
+A modular e‑commerce platform using micro‑frontends and Turborepo.
 
-## 🧭 Overview
+---
 
-This project is a learning sandbox for building modern e-commerce apps using micro-frontends.
+## Overview
 
-## 🔧 Features
+- **Apps** (`apps/`):
+  - `shell` – Auth (login, register, reset)
+  - `storefront` – Storefront
+  - `checkout` – Payment flow
+  - `admin` – Dashboard
+- **Packages** (`packages/`):
+  - `ui` – Shared React components
+  - `utils` – Helpers (API, cookies)
 
-- Independent Micro-Frontends
+---
 
-  Each area (e.g., Storefront, Checkout, Admin) is a separate Next.js app.
-
-- Shared Component Library
-
-  Built with atomic design, shared across all apps via a ui package.
-
-- Next.js Performance
-
-  Uses SSR, SSG, dynamic imports, and caching.
-
-## 🤝 Contributing
-
-Fork the repo & create a branch.
-
-Make your changes and check formatting/linting.
-
-Open a PR with a short description.
-
-## 📄 License
-
-Licensed under the MIT License.
-
-## 💡 Using shadcn/ui
-
-This repo supports shadcn/ui in a monorepo setup.
+## Quick Start
 
 ```bash
-pnpm dlx shadcn@latest init
+# Install
+pnpm install
+
+# Development
+pnpm dev
+
+# Build & Start
+pnpm build && pnpm start
 ```
 
-### Adding components
+---
 
-To add components to your app, run the following command at the root of any app:
+## Contributing
 
-```bash
-pnpm dlx shadcn@latest add button -c apps/web
-```
+1. Fork & clone
+2. `pnpm install`
+3. Make changes
+4. `pnpm test`
+5. Open a PR
 
-This will place the ui components in the `packages/ui/src/components` directory.
+---
 
-### Tailwind
+## License
 
-Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
-
-### Using components
-
-To use the components in your app, import them from the `ui` package.
-
-```tsx
-import { Button } from "@micro-store/ui/components/button";
-```
+MIT © Adrian Karp
