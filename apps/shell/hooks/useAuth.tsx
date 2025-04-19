@@ -73,7 +73,7 @@ export function useForgotPassword() {
         setLoading(false);
       }
     },
-    []
+    [],
   );
 
   return { sendForgotPassword, loading, error, message };
