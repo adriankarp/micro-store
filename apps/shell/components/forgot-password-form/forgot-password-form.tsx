@@ -47,7 +47,7 @@ export function ForgotPasswordForm({
       router.push("/login");
     } catch (err) {
       toast.error(
-        err instanceof Error ? err.message : "Failed to send reset link"
+        err instanceof Error ? err.message : "Failed to send reset link",
       );
     }
   };
