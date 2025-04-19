@@ -1,4 +1,3 @@
-// hooks/useAuth.ts
 import { useState, useCallback } from "react";
 import {
   login as apiLogin,
@@ -74,7 +73,7 @@ export function useForgotPassword() {
         setLoading(false);
       }
     },
-    [],
+    []
   );
 
   return { sendForgotPassword, loading, error, message };
