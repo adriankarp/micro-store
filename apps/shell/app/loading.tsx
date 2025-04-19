@@ -1,7 +1,9 @@
 import React from "react";
+
 import { Card, CardContent } from "@micro-store/ui/components/card";
-import { Header } from "@/components/header";
+
 import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 
 export default function Loading() {
   return (
