@@ -16,6 +16,7 @@ import { cn } from "@micro-store/ui/lib/utils";
 import { useRegister } from "../../hooks/useAuth";
 import { RegisterFormValues, registerFormSchema } from "../../lib/validation";
 import { Footer } from "../footer";
+import { Header } from "../header";
 import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
 
 export function RegisterForm({
@@ -50,6 +51,7 @@ export function RegisterForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <Header />
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2 md:items-center">
           <form

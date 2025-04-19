@@ -19,6 +19,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // TODO: Improve general layout (bring Header and Footer here)
   return (
     <html lang="en" suppressHydrationWarning>
       <title>micro-store</title>

@@ -19,6 +19,7 @@ import {
   forgotPasswordFormSchema,
 } from "../../lib/validation";
 import { Footer } from "../footer";
+import { Header } from "../header";
 import { InputWithTooltip } from "../input-with-tooltip/input-with-tooltip";
 
 export function ForgotPasswordForm({
@@ -55,6 +56,7 @@ export function ForgotPasswordForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <Header />
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2 md:items-center">
           <form
