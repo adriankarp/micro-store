@@ -1,6 +1,6 @@
 # 🛍️ Micro‑Store Monorepo
 
-A modular e‑commerce platform using micro‑frontends and Turborepo.
+A modular e‑commerce platform using micro‑frontends.
 
 ---
 
